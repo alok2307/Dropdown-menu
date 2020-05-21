@@ -1,0 +1,18 @@
+font-awasome link:- https://pro.fontawesome.com/releases/v5.10.0/css/all.css
+
+fa fa-home
+fa fa-info
+fa fa-phone
+fas fa-sign-out-alt
+
+
+
+colors
+
+#ddd      background
+
+
+
+
+
+http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js

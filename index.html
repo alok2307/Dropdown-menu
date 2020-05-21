@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drop-down list using css and javascript - Web monster4u</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    
+
+</head>
+<body>
+    <div class="container">
+       <header>
+        <h1>Menu <strong>Drop-down</strong> List</h1>
+        <h2>Drop-Down list using css</h2>
+       </header>
+       <div class="content">
+           <div class="main-list">
+               <div id="list" class="dropdown-list" tabindex="1">
+                   <span>Menu</span>
+                   <ul class="dropdown">
+                       <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                       <li><a href="#"><i class="fa fa-info"></i> About</a></li>
+                       <li><a href="#"><i class="fa fa-phone"></i> Contact</a></li>
+                       <li><a href="#"><i class="fas fa-sign-in-alt"></i> Signin</a></li>
+                       <li><a href="#"><i class="fas fa-sign-out-alt"></i> Signout</a></li>
+                   </ul>
+               </div>
+           </div>
+       </div>
+    </div>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script type="text/javascript">
+			
+			function dropdown(el) {
+				this.list = el;
+				this.placeholder = this.list.children('span');
+				this.opts = this.list.find('ul.dropdown > li');
+				this.val = '';
+				this.index = -1;
+				this.initEvents();
+			}
+			dropdown.prototype = {
+				initEvents : function() {
+					var obj = this;
+
+					obj.list.on('click', function(event){
+						$(this).toggleClass('active');
+						return false;
+					});
+
+					obj.opts.on('click',function(){
+						var opt = $(this);
+						obj.val = opt.text();
+						obj.index = opt.index();
+						obj.placeholder.text(obj.val);
+					});
+				},
+				getValue : function() {
+					return this.val;
+				},
+				getIndex : function() {
+					return this.index;
+				}
+			}
+
+			$(function() {
+
+				var list = new dropdown( $('#list') );
+
+				$(document).click(function() {
+					$('.dropdown-list').removeClass('active');
+				});
+
+			});
+
+		</script>
+
+</body>
+</html>
